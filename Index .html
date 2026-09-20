@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>متجري الإلكتروني</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Tahoma, sans-serif;
+            background: #f4f6f8;
+            color: #222;
+        }
+
+        /* =========================
+           الهيدر
+        ========================= */
+
+        header {
+            background: #111827;
+            color: white;
+            padding: 25px 15px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0 0 10px;
+            font-size: 30px;
+        }
+
+        header p {
+            margin: 0;
+            color: #d1d5db;
+        }
+
+
+        /* =========================
+           الحاوية
+        ========================= */
+
+        .container {
+            width: 94%;
+            max-width: 1100px;
+            margin: 30px auto;
+        }
+
+
+        /* =========================
+           المنتجات
+        ========================= */
+
+        .products-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 20px;
+        }
+
+        .product {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+
+            text-align: center;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 180px;
+
+            background: #e5e7eb;
+
+            border-radius: 10px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 60px;
+
+            margin-bottom: 15px;
+        }
+
+        .product h3 {
+            margin: 10px 0;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .add-btn {
+            width: 100%;
+
+            background: #16a34a;
+            color: white;
+
+            border: none;
+            border-radius: 8px;
+
+            padding: 12px;
+
+            font-size: 16px;
+
+            cursor: pointer;
+        }
+
+        .add-btn:hover {
+            background: #15803d;
+        }
+
+
+        /* =========================
+           السلة
+        ========================= */
+
+        .cart-section {
+
+            background: white;
+
+            margin-top: 35px;
+
+            padding: 25px;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .cart-title {
+            margin-top: 0;
+        }
+
+        .empty {
+            text-align: center;
+
+            color: #777;
+
+            padding: 30px;
+        }
+
+
+        /* =========================
+           عنصر السلة
+        ========================= */
+
+        .cart-item {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            padding: 15px 0;
+
+            border-bottom: 1px solid #ddd;
+        }
+
+        .item-info {
+            flex: 1;
+        }
+
+        .item-name {
+            font-weight: bold;
+
+            font-size: 17px;
+        }
+
+        .item-price {
+            margin-top: 7px;
+
+            color: #555;
+        }
+
+
+        /* =========================
+           التحكم بالكمية
+        ========================= */
+
+        .quantity-controls {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+        }
+
+        .quantity-controls button {
+
+            width: 35px;
+            height: 35px;
+
+            border: none;
+
+            border-radius: 7px;
+
+            background: #e5e7eb;
+
+            font-size: 20px;
+
+            cursor: pointer;
+        }
+
+        .quantity-controls button:hover {
+            background: #d1d5db;
+        }
+
+
+        /* =========================
+           زر الحذف
+        ========================= */
+
+        .remove-btn {
+
+            background: #dc2626;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 7px;
+
+            padding: 10px 15px;
+
+            cursor: pointer;
+        }
+
+        .remove-btn:hover {
+            background: #b91c1c;
+        }
+
+
+        /* =========================
+           الإجمالي
+        ========================= */
+
+        .total-box {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-top: 20px;
+
+            padding-top: 20px;
+
+            border-top: 2px solid #ddd;
+
+            font-size: 21px;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           واتساب
+        ========================= */
+
+        .whatsapp-btn {
+
+            width: 100%;
+
+            margin-top: 20px;
+
+            padding: 15px;
+
+            background: #25D366;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 9px;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .whatsapp-btn:hover {
+            background: #1ebe5d;
+        }
+
+
+        /* =========================
+           الفوتر
+        ========================= */
+
+        footer {
+
+            text-align: center;
+
+            padding: 30px;
+
+            color: #666;
+        }
+
+
+        /* =========================
+           الهاتف
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            .cart-item {
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+            }
+
+            .quantity-controls {
+
+                justify-content: center;
+
+            }
+
+            .remove-btn {
+
+                width: 100%;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     الهيدر
+========================= -->
+
+<header>
+
+    <h1>
+        🛍️ متجري الإلكتروني
+    </h1>
+
+    <p>
+        أهلاً وسهلاً بكم
+    </p>
+
+</header>
+
+
+<div class="container">
+
+
+    <!-- =========================
+         المنتجات
+    ========================= -->
+
+    <h2 class="products-title">
+        المنتجات
+    </h2>
+
+
+    <div class="products">
+
+
+        <!-- المنتج الأول -->
+
+        <div class="product">
+
+            <div class="product-image">
+                📦
+            </div>
+
+            <h3>
+                المنتج الأول
+            </h3>
+
+            <div class="price">
+                10,000 د.ع
+            </div>
+
+            <button
+                class="add-btn"
+                onclick="addToCart('المنتج الأول', 10000)">
+
+                🛒 إضافة إلى السلة
+
+            </button>
+
+        </div>
+
+
+        <!-- المنتج الثاني -->
+
+        <div class="product">
+
+            <div class="product-image">
+                📦
+            </div>
+
+            <h3>
+                المنتج الثاني
+            </h3>
+
+            <div class="price">
+                15,000 د.ع
+            </div>
+
+            <button
+                class="add-btn"
+                onclick="addToCart('المنتج الثاني', 15000)">
+
+                🛒 إضافة إلى السلة
+
+            </button>
+
+        </div>
+
+
+        <!-- المنتج الثالث -->
+
+        <div class="product">
+
+            <div class="product-image">
+                📦
+            </div>
+
+            <h3>
+                المنتج الثالث
+            </h3>
+
+            <div class="price">
+                20,000 د.ع
+            </div>
+
+            <button
+                class="add-btn"
+                onclick="addToCart('المنتج الثالث', 20000)">
+
+                🛒 إضافة إلى السلة
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =========================
+         سلة المشتريات
+    ========================= -->
+
+    <div class="cart-section">
+
+
+        <h2 class="cart-title">
+
+            🛒 سلة المشتريات
+
+        </h2>
+
+
+        <div id="cart">
+
+            <div class="empty">
+
+                السلة فارغة
+
+            </div>
+
+        </div>
+
+
+        <!-- الإجمالي -->
+
+        <div class="total-box">
+
+            <span>
+                الإجمالي:
+            </span>
+
+            <span>
+
+                <span id="total">
+                    0
+                </span>
+
+                د.ع
+
+            </span>
+
+        </div>
+
+
+        <!-- واتساب -->
+
+        <button
+            class="whatsapp-btn"
+            onclick="order()">
+
+            📱 إتمام الطلب عبر واتساب
+
+        </button>
+
+
+    </div>
+
+
+</div>
+
+
+<footer>
+
+    جميع الحقوق محفوظة © متجري
+
+</footer>
+
+
+<script>
+
+
+/*
+====================================
+رقم واتساب المتجر
+====================================
+
+مهم:
+
+اكتب الرقم بدون علامة +
+
+مثال:
+
+9647700000000
+
+====================================
+*/
+
+const WHATSAPP_PHONE = "9647703188078";
+
+
+
+/*
+====================================
+السلة
+====================================
+*/
+
+let cart = [];
+
+
+
+/*
+====================================
+تحميل السلة المحفوظة
+====================================
+*/
+
+try {
+
+    cart =
+        JSON.parse(
+            localStorage.getItem("cart")
+        ) || [];
+
+} catch (error) {
+
+    cart = [];
+
+}
+
+
+
+/*
+====================================
+حفظ السلة
+====================================
+*/
+
+function saveCart() {
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+
+}
+
+
+
+/*
+====================================
+إضافة منتج
+====================================
+*/
+
+function addToCart(name, price) {
+
+
+    const existingProduct =
+        cart.find(
+            item => item.name === name
+        );
+
+
+    if (existingProduct) {
+
+        existingProduct.quantity++;
+
+    }
+
+    else {
+
+        cart.push({
+
+            name: name,
+
+            price: Number(price),
+
+            quantity: 1
+
+        });
+
+    }
+
+
+    saveCart();
+
+    showCart();
+
+
+    alert(
+        "تمت إضافة المنتج إلى السلة ✅"
+    );
+
+}
+
+
+
+/*
+====================================
+تغيير الكمية
+====================================
+*/
+
+function changeQuantity(index, change) {
+
+
+    if (!cart[index]) {
+
+        return;
+
+    }
+
+
+    cart[index].quantity += change;
+
+
+    if (cart[index].quantity <= 0) {
+
+        cart.splice(index, 1);
+
+    }
+
+
+    saveCart();
+
+    showCart();
+
+}
+
+
+
+/*
+====================================
+حذف المنتج
+====================================
+*/
+
+function removeItem(index) {
+
+
+    if (!cart[index]) {
+
+        return;
+
+    }
+
+
+    cart.splice(index, 1);
+
+
+    saveCart();
+
+    showCart();
+
+}
+
+
+
+/*
+====================================
+عرض السلة
+====================================
+*/
+
+function showCart() {
+
+
+    const cartElement =
+        document.getElementById("cart");
+
+
+    const totalElement =
+        document.getElementById("total");
+
+
+    if (cart.length === 0) {
+
+
+        cartElement.innerHTML = `
+
+            <div class="empty">
+
+                🛒 السلة فارغة
+
+            </div>
+
+        `;
+
+
+        totalElement.textContent = "0";
+
+
+        return;
+
+    }
+
+
+    let total = 0;
+
+
+    cartElement.innerHTML = "";
+
+
+    cart.forEach(
+        function(item, index) {
+
+
+            const itemTotal =
+                Number(item.price) *
+                Number(item.quantity);
+
+
+            total += itemTotal;
+
+
+            cartElement.innerHTML += `
+
+                <div class="cart-item">
+
+
+                    <div class="item-info">
+
+                        <div class="item-name">
+
+                            ${escapeHTML(item.name)}
+
+                        </div>
+
+
+                        <div class="item-price">
+
+                            السعر:
+                            ${formatNumber(item.price)}
+                            د.ع
+
+                            <br>
+
+                            الإجمالي:
+                            ${formatNumber(itemTotal)}
+                            د.ع
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="quantity-controls">
+
+
+                        <button
+                            onclick="changeQuantity(${index}, 1)">
+
+                            +
+
+                        </button>
+
+
+                        <strong>
+
+                            ${item.quantity}
+
+                        </strong>
+
+
+                        <button
+                            onclick="changeQuantity(${index}, -1)">
+
+                            −
+
+                        </button>
+
+
+                    </div>
+
+
+
+                    <button
+                        class="remove-btn"
+                        onclick="removeItem(${index})">
+
+                        🗑️ حذف
+
+                    </button>
+
+
+                </div>
+
+            `;
+
+        }
+    );
+
+
+    totalElement.textContent =
+        formatNumber(total);
+
+}
+
+
+
+/*
+====================================
+إرسال الطلب إلى واتساب
+====================================
+*/
+
+function order() {
+
+
+    if (cart.length === 0) {
+
+
+        alert(
+            "السلة فارغة. أضف منتجاً أولاً."
+        );
+
+
+        return;
+
+    }
+
+
+    let message =
+        "السلام عليكم، أريد طلب المنتجات التالية:\n\n";
+
+
+    let total = 0;
+
+
+    cart.forEach(
+        function(item, index) {
+
+
+            const itemTotal =
+                Number(item.price) *
+                Number(item.quantity);
+
+
+            total += itemTotal;
+
+
+            message +=
+                (index + 1) +
+                ". " +
+                item.name +
+                "\n";
+
+
+            message +=
+                "الكمية: " +
+                item.quantity +
+                "\n";
+
+
+            message +=
+                "السعر: " +
+                formatNumber(itemTotal) +
+                " د.ع\n\n";
+
+        }
+    );
+
+
+    message +=
+        "--------------------\n";
+
+
+    message +=
+        "الإجمالي: " +
+        formatNumber(total) +
+        " د.ع";
+
+
+    const whatsappURL =
+        "https://wa.me/" +
+        WHATSAPP_PHONE +
+        "?text=" +
+        encodeURIComponent(message);
+
+
+    window.open(
+        whatsappURL,
+        "_blank"
+    );
+
+}
+
+
+
+/*
+====================================
+تنسيق الأرقام
+====================================
+*/
+
+function formatNumber(number) {
+
+
+    return Number(number)
+        .toLocaleString("en-US");
+
+}
+
+
+
+/*
+====================================
+حماية النص
+====================================
+*/
+
+function escapeHTML(text) {
+
+
+    return String(text)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+
+/*
+====================================
+تشغيل السلة عند فتح الموقع
+====================================
+*/
+
+showCart();
+
+
+</script>
+
+
+</body>
+
+</html>
